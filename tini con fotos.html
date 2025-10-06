@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>De Papel - Tini</title>
+    <style>
+        /* Estilos Generales y Estructura */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #000; /* Fondo negro */
+            color: #fff; /* Texto blanco por defecto */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Encabezado Principal */
+        .header-principal {
+            display: flex;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 3px solid #fff;
+        }
+        .menu-icon, .search-icon, .bell-icon {
+            font-size: 24px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+        .title {
+            font-size: 36px;
+            font-weight: bold;
+            flex-grow: 1;
+            text-align: center;
+        }
+        .subscribe {
+            font-size: 18px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* Contenido Principal */
+        .main-content {
+            display: flex;
+            margin-top: 20px;
+        }
+
+        /* Barra Lateral Izquierda (Noticias) */
+        .sidebar-left {
+            width: 250px;
+            padding-right: 20px;
+            border-right: 3px solid #fff;
+        }
+        .news-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .news-item-img {
+            width: 70px;
+            height: 70px;
+            margin-right: 10px;
+            object-fit: cover;
+            border: 1px solid #fff; /* Marco blanco */
+        }
+        .news-text {
+            color: #fff;
+            font-size: 14px;
+            line-height: 1.2;
+        }
+        .news-text strong {
+            display: block;
+        }
+
+        /* Área Central (Contenido Principal) */
+        .center-area {
+            flex-grow: 1;
+            padding: 0 20px;
+        }
+        .video-player {
+            position: relative;
+            background-color: #c7c7c7; /* Color de fondo similar al de la imagen */
+            height: 300px; /* Altura del reproductor */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border: 1px solid #fff;
+        }
+        .video-overlay-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 48px;
+            font-family: 'Brush Script MT', cursive; /* Fuente manuscrita simulada */
+            color: #a08200; /* Color dorado o amarillo oscuro */
+            font-weight: normal;
+        }
+        .video-subtitle {
+            position: absolute;
+            top: 20px;
+            font-size: 18px;
+            color: #000;
+        }
+        .play-button {
+            background-color: #a08200;
+            color: #fff;
+            border-radius: 50%;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 30px;
+            position: absolute;
+        }
+        .play-left {
+            left: 10px;
+        }
+        .play-right {
+            right: 10px;
+        }
+        .play-button::before {
+            content: '▶';
+        }
+
+        .secondary-content {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+        }
+        .calendar-icon {
+            width: 150px;
+            height: 150px;
+            background-color: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .calendar-icon img {
+            width: 80%;
+            height: 80%;
+        }
+
+        .spotify-card {
+            background-color: #a08200; /* Color similar al de la tarjeta */
+            color: #000;
+            padding: 10px;
+            border-radius: 5px;
+            width: 200px;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: bold;
+        }
+        .spotify-card img {
+            width: 100%;
+            border-radius: 3px;
+            margin-bottom: 5px;
+        }
+        .spotify-card p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        .circular-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #fff;
+        }
+        .new-single-card {
+            width: 180px;
+            text-align: center;
+        }
+        .new-single-card img {
+            width: 100%;
+            border: 1px solid #fff;
+        }
+        .new-single-card p {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 28px;
+            margin-top: 5px;
+            color: #fff;
+        }
+
+        /* Pie de Página */
+        .footer-nav {
+            border-top: 3px solid #fff;
+            margin-top: 30px;
+            padding: 15px 0;
+            display: flex;
+            justify-content: space-around;
+        }
+        .footer-link {
+            text-transform: uppercase;
+            font-weight: bold;
+            text-decoration: none;
+            color: #fff;
+            padding: 0 20px;
+            border-right: 3px solid #fff;
+        }
+        .footer-link:last-child {
+            border-right: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header-principal">
+        <span class="menu-icon">☰</span>
+        <h1 class="title">De papel</h1>
+        <div style="display: flex; align-items: center;">
+            <span class="bell-icon">🔔</span>
+            <span class="subscribe">| suscribirse</span>
+            <span class="search-icon">🔍</span>
+        </div>
+    </header>
+
+    <div class="main-content">
+        <aside class="sidebar-left">
+            <a href="#" class="news-item">
+                <img src="imagenes/tini usa.jpg" alt="Tini en EE.UU." class="news-item-img">
+                <div class="news-text">
+                    <strong>Tini; sin límites</strong>
+                    en usa
+                </div>
+            </a>
+            <a href="#" class="news-item">
+                <img src="imagenes/t quebranto.jpg" alt="Tini en Quebranto" class="news-item-img">
+                <div class="news-text">
+                    <strong>Quebranto, la</strong>
+                    nueva serie
+                </div>
+            </a>
+            <a href="#" class="news-item">
+                <img src="imagenes/tini depaul.jpg" alt="Tini y Rodri De Paul" class="news-item-img">
+                <div class="news-text">
+                    <strong>Rodri y Tini;</strong>
+                    ¿Se casan?
+                </div>
+            </a>
+        </aside>
+
+        <section class="center-area">
+            <div class="video-player">
+                <span class="video-subtitle">VIVIMOS CON HERIDAS EN LA PIEL</span>
+                <span class="video-overlay-text">De Papel</span>
+                <div class="play-button play-left"></div>
+                <div class="play-button play-right"></div>
+            </div>
+
+            <div class="secondary-content">
+                <div class="calendar-icon">
+                    <img src="calendar-icon.png" alt="Calendario" style="width: 80px;">
+                </div>
+
+                <div class="spotify-card">
+                    <img src="imagenes/tini spotify.jpg" alt="Portada de Spotify">
+                    <p>Porque entre tanta gente nadie me hace tan feliz</p>
+                </div>
+
+                <img src="imagenes/tini univ.jpg" alt="Tini en círculo" class="circular-img">
+
+                <div class="new-single-card">
+                    <img src="imagenes/univer.jpg" alt="Single Universidad">
+                    <p>New Single</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer-nav">
+        <a href="#" class="footer-link">contáctanos</a>
+        <a href="#" class="footer-link">copyright</a>
+        <a href="#" class="footer-link">políticas de privacidad</a>
+    </footer>
+
+</div>
+
+</body>
+</html>
